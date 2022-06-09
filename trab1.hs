@@ -1,5 +1,5 @@
 import System.IO
-import Data.Char (toLower, isLower, isSpace)
+import Data.Char (toLower, isSpace)
 
 main = palindromo
 
@@ -11,11 +11,7 @@ palindromo = do
     verificaPalindromo palavra
 
 filtraPalavraEInverte :: String -> [String]
-filtraPalavraEInverte = words . (filter (\x -> isLower x || isSpace x)) . toLowerStr . reverseString
-    
-reverseString :: [String] -> [String]
-reverseString [] = []
-reverseString (x:xs) = reverseString xs ++ [x]
+filtraPalavraEInverte = words . (filter (\x -> isAlpha x)) . toLower . reverse
 
 verificaPalindromo :: [String] -> IO ()
 verificaPalindromo palavra = do

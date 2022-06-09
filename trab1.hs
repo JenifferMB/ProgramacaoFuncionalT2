@@ -1,5 +1,5 @@
 import System.IO
-import Data.Char (toLower, isSpace)
+import Data.Char
 
 main = palindromo
 

@@ -1,12 +1,12 @@
 import System.IO
-import Data.Char
+import Data.Char 
 
 main = palindromo
 
 palindromo :: IO ()
 palindromo = do
     putStrLn "Digite uma palavra:"
-    palavra <- filtraPalavra
+    palavra <- filtraPalavraEInverte
     putStrLn "Eh palindromo?"
     verificaPalindromo palavra
 

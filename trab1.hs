@@ -1,24 +1,23 @@
 import System.IO
 import Data.Char 
 
-main = palindromo
+main :: IO ()
+main = do
+    print "Digite uma frase para verificar se eh palindromo ou nao"
+    inputStr <- getLine 
+    let input = read inputStr :: String
+    if palindrome input then
+        print $ show input <> " eh palindromo"
+    else
+        print $ show input <> " nao eh palindromo"
 
-palindromo :: IO ()
-palindromo = do
-    putStrLn "Digite uma palavra:"
-    palavra <- filtraPalavraEInverte
-    putStrLn "Eh palindromo?"
-    verificaPalindromo palavra
 
-filtraPalavraEInverte :: String -> [String]
+invertePalavras :: String -> String
+invertePalavras = unwords . map reverse . words
+
+palindrome :: String -> Bool
+palindrome x = invertePalavras x == x
+
+{-- filtraPalavraEInverte :: String -> [String]
 filtraPalavraEInverte = words . (filter (\x -> isAlpha x)) . toLower . reverse
-
-verificaPalindromo :: [String] -> IO ()
-verificaPalindromo palavra = do
-    {--putStr "? "
-    chute <- getLine
-    if chute == palavra then
-        putStrLn "Você acertou!"
-    else do
-        putStrLn (match palavra chute)
-        verificaPalindromo palavra--}
+--}

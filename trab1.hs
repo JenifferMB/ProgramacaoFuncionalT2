@@ -16,8 +16,14 @@ invertePalavras :: String -> String
 invertePalavras = unwords . map reverse . words
 
 palindrome :: String -> Bool
+<<<<<<< Updated upstream
 palindrome x = invertePalavras x == x
 
 {-- filtraPalavraEInverte :: String -> [String]
+=======
+palindrome x = invertePalavras (map toLower x) == (map toLower x)
+
+{--filtraPalavraEInverte :: String -> [String]
+>>>>>>> Stashed changes
 filtraPalavraEInverte = words . (filter (\x -> isAlpha x)) . toLower . reverse
 --}

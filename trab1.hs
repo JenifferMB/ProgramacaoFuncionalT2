@@ -17,7 +17,3 @@ invertePalavras = unwords . map reverse . words
 
 palindrome :: String -> Bool
 palindrome x = invertePalavras (map toLower x) == (map toLower x)
-
-{--filtraPalavraEInverte :: String -> [String]
-filtraPalavraEInverte = words . (filter (\x -> isAlpha x)) . toLower . reverse
---}

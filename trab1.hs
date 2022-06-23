@@ -5,11 +5,10 @@ main :: IO ()
 main = do
     print "Digite uma frase para verificar se eh palindromo ou nao"
     inputStr <- getLine 
-    let input = read inputStr :: String
-    if palindrome input then
-        print $ show input <> " eh palindromo"
+    if palindrome inputStr then
+        print $ show inputStr <> " eh palindromo"
     else
-        print $ show input <> " nao eh palindromo"
+        print $ show inputStr <> " nao eh palindromo"
 
 
 invertePalavras :: String -> String

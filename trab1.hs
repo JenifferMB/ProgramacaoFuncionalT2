@@ -4,15 +4,18 @@ import Data.Char
 main :: IO ()
 main = do
     print "Digite uma frase para verificar se eh palindromo ou nao"
-    inputStr <- getLine 
-    if palindrome inputStr then
-        print $ show inputStr <> " eh palindromo"
+    palavra <- getLine 
+    if palindromo palavra then
+        print $ show palavra <> " eh palindromo"
     else
-        print $ show inputStr <> " nao eh palindromo"
+        print $ show palavra <> " nao eh palindromo"
 
 
 invertePalavras :: String -> String
-invertePalavras = unwords . map reverse . words
+invertePalavras = unwords . map trim . map reverse . words
 
-palindrome :: String -> Bool
-palindrome x = invertePalavras (map toLower x) == (map toLower x)
+trim :: String -> String
+trim = dropWhile (\x -> x == ' ')
+
+palindromo :: String -> Bool
+palindromo x = invertePalavras (map toLower x) == (map toLower x)

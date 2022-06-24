@@ -6,16 +6,15 @@ somatorio n = contador n 0
   where
     contador 0 total = return total
     contador n total = do
-        numero <- getLine
-        let novoNumero = total + (read numero :: Int)
+        numero <- readLn
+        let novoNumero = total + numero
         contador (n - 1) novoNumero
 
 main = somador :: IO ()
 somador = do
     print "Digite a quantidade de numeros:"
-    numero <- getLine
+    numero <- readLn
     print "Digite os numeros para somar: "
-    let inputNumero = (read numero :: Int)
-    total <- somatorio inputNumero
+    total <- somatorio numero
     putStr "O resultado da soma eh: "
     print $ total
